@@ -19,7 +19,7 @@ function displayBookings(bookings) {
         const div= document.createElement('div');
         const p = document.createElement('p');
         const status = document.createElement('span');
-        p.textContent = `Customer-Name: ${booking.fields.CustomerName}, Time: ${booking.fields.Time}, Date: ${booking.fields.Date}`;
+        p.textContent = `Customer-Name: ${booking.fields.Customer-Name}, Time: ${booking.fields.Time}, Date: ${booking.fields.Date}`;
         status.textContent = `Status: ${booking.fields.Status}`;
         div.classList.add('booking');;
         div.appendChild(p);
