@@ -1,6 +1,6 @@
 exports.handler = async (event, context) => {
     const token = process.env.AIRTABLE_TOKEN;
-    const baseId = process.env.AIRTABLE_BASE_ID;
+    const baseId = process.env.BASE_ID;
     const table = 'BookingSystem';
 
     const url = `https://api.airtable.com/v0/${baseId}/${table}`;
