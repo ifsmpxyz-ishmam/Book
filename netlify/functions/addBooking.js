@@ -10,7 +10,7 @@ exports.handler = async (event, context) => {
                 'Authorization': `Bearer ${token}`, 
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(event.body)
+           body: event.body
         });
         const data = await response.json();
         return { statusCode: 200, body: JSON.stringify(data) };
