@@ -38,12 +38,19 @@ function displayBookings(bookings) {
         const divider = document.createElement('div');
         divider.classList.add('divider');
 
+        const deleteBtn = document.createElement('button');
+
+        deleteBtn.textContent = 'Delete';
+        deleteBtn.classList.add('delete-btn')
+        deleteBtn.addEventListener('click', () => {
+            deleteBooking(booking.id);
+        });
         const status = document.createElement('span');
         const isConfirmed = booking.fields['Status'] === 'Confirmed';
         status.textContent = booking.fields['Status'];
         status.classList.add(isConfirmed ? 'stamp-confirmed' : 'stamp-pending');
 
-        div.append(ticketNumber, p, meta, divider, status);
+        div.append(ticketNumber, p, meta, divider, status, deleteBtn);
         container.appendChild(div);
     });
 }
@@ -87,3 +94,21 @@ addBookingBtn.addEventListener('click', () => {
         });
     }
 });
+async function deleteBooking(id) {
+    try {
+        const response = await fetch(`/.netlify/functions/deleteBooking/${id}`, {
+            method: 'DELETE'
+        });
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        
+        const bookings = await FetchBookings();
+        displayBookings(bookings);
+
+    } catch (error) {
+        console.error('Error deleting booking:', error);
+    }
+}
