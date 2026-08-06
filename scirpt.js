@@ -47,7 +47,7 @@ function displayBookings(bookings) {
         container.appendChild(div);
     });
 }
-a
+
 
 FetchBookings().then(bookings => {
     displayBookings(bookings);
