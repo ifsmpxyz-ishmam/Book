@@ -6,7 +6,7 @@ const bookingTime = document.getElementById('booking-time');
 const bookingStatus = document.getElementById('booking-status');
 async function FetchBookings(params) {
     try {
-        const response = await fetch('/.netlify/functions/getBookings');
+        const response = await fetch('/.netlify/functions/getBooking');
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
