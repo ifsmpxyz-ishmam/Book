@@ -20,6 +20,7 @@ async function FetchBookings(params) {
 }
 function displayBookings(bookings) {
     container.innerHTML = '';
+     container.innerHTML = '<p>Loading...</p>';
     bookings.forEach((booking, index) => {
         const div = document.createElement('div');
         div.classList.add('booking-div');
