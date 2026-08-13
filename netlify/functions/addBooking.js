@@ -17,6 +17,6 @@ exports.handler = async (event, context) => {
     } catch (error) {
         console.error('Error adding Booking:', error);
         return { statusCode: 500, body:  JSON.stringify({ error: 'Failed to add booking' }) };
-        container.innerHTML = '<p>Booking add করা যায়নি। আবার চেষ্টা করো।</p>';
+       
     }
 }
